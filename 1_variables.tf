@@ -26,3 +26,8 @@ variable "cidrBlocks" {
 variable "defaultRegion" {
   default = "us-east-1"
 }
+
+variable "RDS_HOST" {
+  description = "Secret passed from GitHub Actions"
+  type        = string
+}

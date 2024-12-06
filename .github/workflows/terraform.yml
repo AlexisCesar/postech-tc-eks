@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
+    env:
+      TF_VAR_RDS_HOST: ${{ secrets.TF_VAR_RDS_HOST }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3

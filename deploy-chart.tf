@@ -15,9 +15,8 @@ resource "helm_release" "lanchonetedobairro" {
   ]
 
   set {
-    name = "DB_HOST"
-    # value = data.aws_db_instance.tc_pg_db.address
-    value = "toreplace"
+    name  = "DB_HOST"
+    value = var.RDS_HOST
   }
 
   depends_on = [aws_eks_node_group.tc_eks_node_group]
