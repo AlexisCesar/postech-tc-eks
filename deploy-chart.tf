@@ -40,3 +40,13 @@ resource "helm_release" "lanchonetedobairro" {
 
   depends_on = [aws_eks_node_group.tc_eks_node_group]
 }
+
+resource "kubernetes_namespace" "dev" {
+  metadata {
+    annotations = {
+      name = "dev-annotation"
+    }
+
+    name = "dev"
+  }
+}
