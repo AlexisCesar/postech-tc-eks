@@ -19,10 +19,10 @@ removerPedidosImage:
 configmap:
   name: lanchonetedobairro-config-map
   data:
-    DB_HOST: ""
-    DB_PORT: ""
-    DB_USER: ""
-    DB_NAME: "" 
+    DB_HOST: 
+    DB_PORT: 5432
+    DB_USER: tc3user
+    DB_NAME: lanchonetedobairro 
 
 # Mercado Pago config map
 mpConfigMap:
