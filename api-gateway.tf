@@ -44,6 +44,8 @@ resource "aws_apigatewayv2_integration" "tc_eks_api_integration" {
 resource "aws_apigatewayv2_route" "all" {
   api_id = aws_apigatewayv2_api.tc_api_gateway.id
 
-  route_key = "ANY /{proxy+}"
-  target    = "integrations/${aws_apigatewayv2_integration.tc_eks_api_integration.id}"
+  route_key          = "ANY /{proxy+}"
+  target             = "integrations/${aws_apigatewayv2_integration.tc_eks_api_integration.id}"
+  authorization_type = "JWT"
+  authorizer_id      = aws_apigatewayv2_authorizer.cognito_authorizer.id
 }
