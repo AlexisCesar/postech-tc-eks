@@ -36,3 +36,8 @@ variable "loadBalancerUri" {
   description = "Secret passed from GitHub Actions"
   type        = string
 }
+
+variable "cognitoIssuerUrl" {
+  description = "Variable passed from GitHub Actions"
+  type        = string
+}
