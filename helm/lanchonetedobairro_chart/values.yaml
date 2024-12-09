@@ -4,7 +4,7 @@ namespace: default
 apiName: lanchonetedobairro-api
 apiImage: 
   name: aleehcr/lanchonetedobairro_api
-  tag: integration_v3
+  tag: latest
 apiNodePort: 30200
 
 # DB
