@@ -12,8 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
-    env:
-      TF_VAR_RDS_HOST: ${{ secrets.TF_VAR_RDS_HOST }}
+    # env:
+      # TF_VAR_RDS_HOST: ${{ secrets.TF_VAR_RDS_HOST }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -46,7 +46,7 @@ jobs:
       - name: Terraform Plan
         id: plan
         if: github.event_name == 'pull_request'
-        run: terraform plan -var="rdsHost=${{ secrets.TF_VAR_RDS_HOST }}" -no-color -input=false
+        run: terraform plan -var="rdsHost=${{ secrets.TF_VAR_RDS_HOST }}" -var="loadBalancerUri=${{ secrets.TF_VAR_LOAD_BALANCER_URI }}" -no-color -input=false
         continue-on-error: true
 
       - name: Update Pull Request
@@ -85,4 +85,4 @@ jobs:
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-        run: terraform apply -var="rdsHost=${{ secrets.TF_VAR_RDS_HOST }}" -auto-approve -input=false
+        run: terraform apply -var="rdsHost=${{ secrets.TF_VAR_RDS_HOST }}" -var="loadBalancerUri=${{ secrets.TF_VAR_LOAD_BALANCER_URI }}" -auto-approve -input=false

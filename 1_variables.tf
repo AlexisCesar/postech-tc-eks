@@ -31,3 +31,8 @@ variable "rdsHost" {
   description = "Secret passed from GitHub Actions"
   type        = string
 }
+
+variable "loadBalancerUri" {
+  description = "Secret passed from GitHub Actions"
+  type        = string
+}
