@@ -4,7 +4,7 @@ namespace: default
 apiName: lanchonetedobairro-api
 apiImage: 
   name: aleehcr/lanchonetedobairro_api
-  tag: integration_v3
+  tag: latest
 apiNodePort: 30200
 
 # DB
@@ -22,7 +22,7 @@ configmap:
     DB_HOST: ""
     DB_PORT: ""
     DB_USER: ""
-    DB_NAME: "" 
+    DB_NAME: ""
 
 # Mercado Pago config map
 mpConfigMap:
