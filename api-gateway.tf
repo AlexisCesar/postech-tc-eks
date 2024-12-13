@@ -49,3 +49,17 @@ resource "aws_apigatewayv2_route" "all" {
   authorization_type = "JWT"
   authorizer_id      = aws_apigatewayv2_authorizer.cognito_authorizer.id
 }
+
+resource "aws_apigatewayv2_route" "swagger_base" {
+  api_id = aws_apigatewayv2_api.tc_api_gateway.id
+
+  route_key = "ANY /swagger"
+  target    = "integrations/${aws_apigatewayv2_integration.tc_eks_api_integration.id}"
+}
+
+resource "aws_apigatewayv2_route" "swagger" {
+  api_id = aws_apigatewayv2_api.tc_api_gateway.id
+
+  route_key = "ANY /swagger/{proxy+}"
+  target    = "integrations/${aws_apigatewayv2_integration.tc_eks_api_integration.id}"
+}
